@@ -66,3 +66,7 @@ SELECT
 FROM filtered
 GROUP BY version;
 ```
+| Row | version  | day1_retention_rate | day7_retention_rate |
+|-----|---------|-------------------|-------------------|
+| 1   | gate_30 | 42.22             | 15.45             |
+| 2   | gate_40 | 41.66             | 14.63             |
