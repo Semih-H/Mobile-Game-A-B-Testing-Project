@@ -2,7 +2,7 @@
 Cookie Cats Mobile Game Data Analysis Using SQL & Tableau
 
 -- 1. Missing values check
-
+sql
 SELECT 
     SUM(CASE WHEN cookie_cats.userid IS NULL THEN 1 ELSE 0 END) AS missing_userid,
     SUM(CASE WHEN cookie_cats.version IS NULL THEN 1 ELSE 0 END) AS missing_version,
