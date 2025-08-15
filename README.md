@@ -13,6 +13,11 @@ SELECT
 FROM CookieCats.cookie_cats;
 ```
 
+| Row | missing_userid | missing_version | missing_gamerounds | missing_ret1 | missing_ret7 |
+|-----|----------------|----------------|------------------|--------------|--------------|
+| 1   | 0              | 0              | 0                | 0            | 0            |
+
+
 2. Duplicate users
 
 ```sql
@@ -21,6 +26,10 @@ FROM CookieCats.cookie_cats
 GROUP BY userid
 HAVING COUNT(*) > 1;
 ```
+
+|There is no data to display.|
+
+
 3 Check for leading/trailing spaces in string columns
 
 ```sql
@@ -32,6 +41,11 @@ SELECT SUM(
     AS leading_trailing_spaces_version
 FROM CookieCats.cookie_cats AS cookie_cats;
 ```
+| Row | leading_trailing_spaces_version |
+|-----|--------------------------------|
+| 1   | 0                              |
+
+
 4 Basic statistical summary and outlier detection
 
 ```sql
@@ -42,12 +56,22 @@ SELECT
 FROM CookieCats.cookie_cats;
 ```
 
+| Row | min_rounds | max_rounds | avg_rounds        |
+|-----|------------|------------|-----------------|
+| 1   | 0          | 49854      | 51.872456729757211 |
+
+
 ```sql
 SELECT 
-  PERCENTILE_CONT(sum_gamerounds, 0.95) OVER() AS exact_p95
+  PERCENTILE_CONT(sum_gamerounds, 0.95) OVER() AS p95
 FROM CookieCats.cookie_cats
 LIMIT 1;
 ```
+| Row | p95   |
+|-----|-------|
+| 1   | 221.0 |
+
+
 
 ANALYSIS
 
