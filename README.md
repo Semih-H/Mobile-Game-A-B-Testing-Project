@@ -17,6 +17,7 @@ FROM CookieCats.cookie_cats;
 |-----|----------------|----------------|------------------|--------------|--------------|
 | 1   | 0              | 0              | 0                | 0            | 0            |
 
+<br>
 
 2. Duplicate users
 
@@ -28,7 +29,9 @@ HAVING COUNT(*) > 1;
 ```
 
 |There is no data to display.|
+|----------------------------|
 
+<br>
 
 3 Check for leading/trailing spaces in string columns
 
@@ -45,8 +48,9 @@ FROM CookieCats.cookie_cats AS cookie_cats;
 |-----|--------------------------------|
 | 1   | 0                              |
 
+<br>
 
-4 Basic statistical summary and outlier detection
+4 Basic statistical summary
 
 ```sql
 SELECT 
@@ -60,18 +64,21 @@ FROM CookieCats.cookie_cats;
 |-----|------------|------------|-----------------|
 | 1   | 0          | 49854      | 51.872456729757211 |
 
+<br>
+
+5. Calculate 95th percentile cutoff
 
 ```sql
 SELECT 
-  PERCENTILE_CONT(sum_gamerounds, 0.95) OVER() AS p95
+  PERCENTILE_CONT(sum_gamerounds, 0.95) OVER() AS p95_cutoff
 FROM CookieCats.cookie_cats
 LIMIT 1;
 ```
-| Row | p95   |
+| Row | p95_cutoff   |
 |-----|-------|
 | 1   | 221.0 |
 
-
+<br>
 
 ANALYSIS
 
