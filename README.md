@@ -21,7 +21,7 @@ FROM CookieCats.cookie_cats
 GROUP BY userid
 HAVING COUNT(*) > 1;
 ```
--- 3 Check for leading/trailing spaces in string columns
+3 Check for leading/trailing spaces in string columns
 
 ```sql
 SELECT SUM(
@@ -32,7 +32,7 @@ SELECT SUM(
     AS leading_trailing_spaces_version
 FROM CookieCats.cookie_cats AS cookie_cats;
 ```
--- 4 Outlier check
+4 Basic statistical summary and outlier detection
 
 ```sql
 SELECT 
@@ -40,6 +40,7 @@ SELECT
     MAX(sum_gamerounds) AS max_rounds,
     AVG(sum_gamerounds) AS avg_rounds
 FROM CookieCats.cookie_cats;
+```
 
 ```sql
 SELECT 
@@ -48,9 +49,9 @@ FROM CookieCats.cookie_cats
 LIMIT 1;
 ```
 
--- ANALYSIS
+ANALYSIS
 
--- Retention
+Retention
 
 ```sql
 WITH filtered AS (
